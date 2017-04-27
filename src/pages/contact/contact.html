@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Issue list by report
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-item *ngFor="let issue of issueList">
+      <ion-row>
+      <ion-col center>
+        <ion-note item-left>
+          <span class="etNumber">{{issue.Id}}</span>
+          </ion-note>
+      </ion-col>
+      <ion-col center>
+        <ion-note item-right>{{issue.SubmittedIn}}</ion-note>
+      </ion-col>
+    </ion-row>
+    <h2 text-justify>
+      <p class="ellipsis">{{issue.Title}} </p>
+    </h2>
+    <ion-row>
+      <ion-col center text-left>
+          <h6 class="bottomNote">{{issue.Status}}</h6>
+      </ion-col>
+      <ion-col center text-center>
+           <h6 class="bottomNote">{{issue.Priority}}</h6>
+      </ion-col>
+      <ion-col center text-right>
+          <h6 class="bottomNote"> Custom field</h6>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-content>

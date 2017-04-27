@@ -1,0 +1,25 @@
+page-contact {
+  ion-note {
+    font-size: 12px;
+    align-self: flex-start;
+    margin-top: 14px;
+ }
+ 
+ .etNumber{
+     color: #0095ff;
+ }
+
+ .bottomNote{
+    font-size: 12px;
+    align-self: flex-start;
+    color: gray;
+ }
+ 
+ .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    margin-left: 0.3em;
+ }
+}
