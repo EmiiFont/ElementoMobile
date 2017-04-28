@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ElementoolApi } from "../providers/elementool-api";
 
@@ -21,7 +22,7 @@ export class MyApp {
       splashScreen.hide();
 
       this.api.verifyUser().subscribe(data => {
-          this.rootPage = TabsPage;
+          this.rootPage = HomePage;
       }, error => {
          if(error.status === 401){
           this.rootPage = LoginPage;

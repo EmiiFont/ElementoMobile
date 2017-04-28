@@ -24,4 +24,8 @@ export class ContactPage {
          console.log(error);
       });
   }
+
+  viewIssueDetail(issue){
+    console.log(issue);
+  }
 }

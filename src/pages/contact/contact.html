@@ -1,28 +1,39 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Issue list by report
-    </ion-title>
-  </ion-navbar>
+<ion-navbar hideBackButton="true"> <!-- If you don't need back here -->
+    <button ion-button menuToggle start>
+        <ion-icon name="ios-menu-outline"></ion-icon>
+    </button>
+
+    <ion-title>Issues by report</ion-title>
+
+    <ion-buttons end>
+        <button ion-button icon-only>
+            <ion-icon name="search"></ion-icon>
+        </button>
+
+        <button ion-button icon-only>
+            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-navbar>
 </ion-header>
 
 
 <ion-content>
-    <ion-item *ngFor="let issue of issueList">
+    <button ion-item *ngFor="let issue of issueList" (click)="viewIssueDetail(issue)">
       <ion-row>
       <ion-col center>
         <ion-note item-left>
           <span class="etNumber">{{issue.Id}}</span>
           </ion-note>
       </ion-col>
-      <ion-col center>
-        <ion-note item-right>{{issue.SubmittedIn}}</ion-note>
+      <ion-col text-right>
+        <ion-note item-right>{{issue.SubmittedIn | date:'shortDate'}}</ion-note>
       </ion-col>
     </ion-row>
     <h2 text-justify>
       <p class="ellipsis">{{issue.Title}} </p>
     </h2>
-    
     <ion-row>
       <ion-col center text-left>
           <h6 class="bottomNote">{{issue.Status}}</h6>
@@ -34,5 +45,5 @@
           <h6 class="bottomNote"> Custom field</h6>
       </ion-col>
     </ion-row>
-  </ion-item>
+  </button>
 </ion-content>
