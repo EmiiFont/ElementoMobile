@@ -1,15 +1,14 @@
 <ion-header class="blue-yellow">
-  <ion-navbar >
-    <ion-title>Quick Reports</ion-title>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >Quick Reports</ion-title>
   </ion-navbar>
 </ion-header>
 
-
-
 <ion-content>
- 
 <ion-list>
-   
 <ion-card *ngFor="let report of reportList">
   <ion-card-content>
     <button ion-item no-lines (click)="getIssuesByReportId(report)">

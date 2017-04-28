@@ -1,5 +1,5 @@
 <ion-header>
-<ion-navbar hideBackButton="true"> <!-- If you don't need back here -->
+<ion-navbar hideBackButton="false"> <!-- If you don't need back here -->
     <button ion-button menuToggle start>
         <ion-icon name="ios-menu-outline"></ion-icon>
     </button>
@@ -11,15 +11,15 @@
             <ion-icon name="search"></ion-icon>
         </button>
 
-        <button ion-button icon-only>
-            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        <button ion-button icon-only (click)="addNewIssue()">
+            <ion-icon ios="ios-add" md="md-add" ></ion-icon>
         </button>
     </ion-buttons>
 </ion-navbar>
 </ion-header>
 
-
 <ion-content>
+  <ion-list  class="the">
     <button ion-item *ngFor="let issue of issueList" (click)="viewIssueDetail(issue)">
       <ion-row>
       <ion-col center>
@@ -46,4 +46,5 @@
       </ion-col>
     </ion-row>
   </button>
+  </ion-list>
 </ion-content>

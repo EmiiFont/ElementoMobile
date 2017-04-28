@@ -28,4 +28,9 @@ export class ContactPage {
   viewIssueDetail(issue){
     console.log(issue);
   }
+
+
+  addNewIssue(){
+    console.log("Adding new issue");
+  }
 }

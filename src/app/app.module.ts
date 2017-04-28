@@ -8,7 +8,6 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ElementoolApi } from '../providers/elementool-api';
 
@@ -34,7 +33,6 @@ export class RavenErrorHandler implements ErrorHandler {
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     LoginPage
   ],
   imports: [
@@ -49,7 +47,6 @@ export class RavenErrorHandler implements ErrorHandler {
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     LoginPage
   ],
   providers: [

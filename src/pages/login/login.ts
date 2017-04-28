@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { Storage } from '@ionic/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
-import { TabsPage } from '../tabs/tabs';
+import { HomePage } from '../home/home';
 import { ElementoolApi } from '../../providers/elementool-api';
 /**
  * Generated class for the Login page.
@@ -76,7 +76,7 @@ export class LoginPage {
           var token = data.json();
          
           this.localstorage.set('jwt', token).then(v => {
-             this.navCtrl.setRoot(TabsPage);
+             this.navCtrl.setRoot(HomePage);
           });
           
       }, error => {
