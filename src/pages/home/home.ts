@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { IssuesPage } from '../issues/issues';
+import { AboutPage } from '../about/about';
 import { ElementoolApi } from '../../providers/elementool-api';
 
 @Component({
@@ -13,7 +14,7 @@ export class HomePage {
 
   public reportList: Array<any>;
 
-  constructor(public navCtrl: NavController, public api: ElementoolApi) {
+  constructor(public navCtrl: NavController, public api: ElementoolApi,  public alertCtrl: AlertController) {
     this.showReports();
   }
    
@@ -34,7 +35,44 @@ export class HomePage {
    }
 
    addNewIssue(){
-    console.log("Adding new issue");
+       this.navCtrl.push(AboutPage, {
+        reportObj: ""
+    });
+  }
+
+  showSearch(){
+    let prompt = this.alertCtrl.create({
+      title: 'Search',
+      message: "Search by ticket number or title",
+      inputs: [
+        {
+          name: 'searchbox',
+          placeholder: 'Search...'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Search',
+          handler: data => {
+            var searchTerm = data.searchbox;
+            this.doSearch(data);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  doSearch(term){
+     this.navCtrl.push(IssuesPage, {
+        searchTerm:term.searchbox
+    });
   }
 
 }

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { AboutPage } from '../pages/about/about';
 import { ElementoolApi } from "../providers/elementool-api";
 
 @Component({
@@ -21,7 +22,8 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public api: ElementoolApi, public storage: Storage) {
      this.pages = [
-      { title: 'Quick Reports', component: HomePage }
+      { title: 'Quick Reports', component: HomePage },
+      { title: 'New Issue', component: AboutPage },
       // { title: 'List', component: ListPage }
     ];
     platform.ready().then(() => {
@@ -34,9 +36,7 @@ export class MyApp {
       this.api.verifyUser().subscribe(data => {
           this.rootPage = HomePage;
       }, error => {
-        console.log(error);
          if (error === 'Unauthorized'){
-           
           this.rootPage = LoginPage;
            }
         });

@@ -48,7 +48,25 @@ export class ElementoolApi {
         this.requestOptions.headers.append('Authorization', 'Bearer ' + api_token);
       }
       // make request 
-      return this.http.get(this.odataUrl + '/Issues('+ reportId +')?$top=10&$orderby=Id desc', this.requestOptions);
+      return this.http.get(this.odataUrl + '/Issues('+ reportId +')?$top=15&$orderby=Id desc', this.requestOptions);
+      });
+  }
+
+  public searchIssues(term){
+    
+    //Issues(reportId)?$top=10&$orderby=Id desc
+    return this.getAuthHeaders().flatMap( api_token => {
+
+      if( api_token ) {
+        // add Authorization header
+        this.requestOptions.headers.append('Authorization', 'Bearer ' + api_token);
+      }
+      
+      var number = parseInt(term) || 0;
+
+      var queryParamsSearch = '$filter=contains(tolower(Title), tolower('+ "'" + term + "'" + ')) or Id eq '+ number + '&$top=15&$orderby=Id desc';
+      // make request 
+      return this.http.get(this.odataUrl + 'Issues?' + queryParamsSearch, this.requestOptions);
       });
   }
 

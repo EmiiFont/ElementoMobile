@@ -1,8 +1,17 @@
 <ion-header>
   <ion-navbar>
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      About
+      New Issue
     </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="save()">
+            <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+        </button>
+    </ion-buttons>
+    
   </ion-navbar>
 </ion-header>
 
