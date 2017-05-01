@@ -3,7 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { IssuesPage } from '../issues/issues';
-import { AboutPage } from '../about/about';
+import { NewIssuePage } from '../newIssue/newIssue';
 import { ElementoolApi } from '../../providers/elementool-api';
 
 @Component({
@@ -35,7 +35,7 @@ export class HomePage {
    }
 
    addNewIssue(){
-       this.navCtrl.push(AboutPage, {
+       this.navCtrl.push(NewIssuePage, {
         reportObj: ""
     });
   }

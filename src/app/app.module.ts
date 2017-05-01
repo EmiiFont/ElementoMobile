@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 
-import { AboutPage } from '../pages/about/about';
+import { NewIssuePage } from '../pages/newIssue/newIssue';
 import { IssuesPage } from '../pages/issues/issues';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -30,7 +30,7 @@ export class RavenErrorHandler implements ErrorHandler {
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    NewIssuePage,
     IssuesPage,
     HomePage,
     LoginPage
@@ -44,7 +44,7 @@ export class RavenErrorHandler implements ErrorHandler {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    NewIssuePage,
     IssuesPage,
     HomePage,
     LoginPage
