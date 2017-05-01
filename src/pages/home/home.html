@@ -4,6 +4,15 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title >Quick Reports</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+            <ion-icon name="search"></ion-icon>
+        </button>
+
+        <button ion-button icon-only (click)="addNewIssue()">
+            <ion-icon ios="ios-add" md="md-add" ></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

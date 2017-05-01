@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+
 import { LoginPage } from '../login/login';
-import { ContactPage } from '../contact/contact';
+import { IssuesPage } from '../issues/issues';
 import { ElementoolApi } from '../../providers/elementool-api';
 
 @Component({
@@ -26,13 +27,14 @@ export class HomePage {
    }
    
    getIssuesByReportId(report){
-    this.navCtrl.push(ContactPage, {
+    this.navCtrl.push(IssuesPage, {
         reportObj: report
     });
      
    }
 
-   logout() {
-    this.navCtrl.setRoot(LoginPage);
+   addNewIssue(){
+    console.log("Adding new issue");
   }
+
 }

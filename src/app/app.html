@@ -11,6 +11,16 @@
         {{p.title}}
       </button>
     </ion-list>
+
+      <ion-list>
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="let p of accountPages" (click)="logout(p)">
+        <ion-icon item-left ios="ios-log-out" md="md-log-out"></ion-icon>
+          {{p.title}}
+      </button>
+    </ion-list>
   </ion-content>
 
 </ion-menu>

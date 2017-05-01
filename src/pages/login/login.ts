@@ -46,9 +46,6 @@ export class LoginPage {
   }
 
   doLogin(formData){
-     console.log(formData);
-     console.log(this.api);
-     
      var user =  {
        AccountName: formData.accountName,
        UserName: formData.userName,
@@ -81,11 +78,9 @@ export class LoginPage {
           
       }, error => {
          loader.dismissAll();
-
          if(error.status === 401){
            this.errorMessage = "Wrong login credentials";
          }
-         console.log(error);
       });
   }
 }

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ElementoolApi } from "../providers/elementool-api";
@@ -15,8 +15,11 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: Array<{title: string, component: any}>;
+  accountPages: Array<{title: string, component: any}> = [
+    { title: 'Logout', component: LoginPage }
+  ];
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public api: ElementoolApi) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public api: ElementoolApi, public storage: Storage) {
      this.pages = [
       { title: 'Quick Reports', component: HomePage }
       // { title: 'List', component: ListPage }
@@ -31,10 +34,12 @@ export class MyApp {
       this.api.verifyUser().subscribe(data => {
           this.rootPage = HomePage;
       }, error => {
-         if(error.status === 401){
+        console.log(error);
+         if (error === 'Unauthorized'){
+           
           this.rootPage = LoginPage;
            }
-          });
+        });
       });
 
       
@@ -50,4 +55,9 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
+   logout() {
+    this.storage.remove('jwt').then(v => {
+         this.nav.setRoot(LoginPage);
+    });
+  }
 }

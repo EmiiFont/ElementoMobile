@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { IssuesPage } from '../pages/issues/issues';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ElementoolApi } from '../providers/elementool-api';
@@ -31,7 +31,7 @@ export class RavenErrorHandler implements ErrorHandler {
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    IssuesPage,
     HomePage,
     LoginPage
   ],
@@ -45,7 +45,7 @@ export class RavenErrorHandler implements ErrorHandler {
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    IssuesPage,
     HomePage,
     LoginPage
   ],

@@ -3,10 +3,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ElementoolApi } from "../../providers/elementool-api";
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-issues',
+  templateUrl: 'issues.html'
 })
-export class ContactPage {
+export class IssuesPage {
 
   public issueList: Array<any>;
 

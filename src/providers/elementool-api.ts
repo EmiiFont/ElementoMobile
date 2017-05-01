@@ -3,6 +3,8 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw'
 import { Storage } from '@ionic/storage';
 import { Observable } from "rxjs/Observable";
 
@@ -33,6 +35,7 @@ export class ElementoolApi {
 
   authenticateUser(user){
    return this.http.post(this.baseUrl + '/Auth', JSON.stringify(user), this.requestOptions);
+      
   }
 
   public getIssuesByReportId(reportId){
@@ -42,7 +45,6 @@ export class ElementoolApi {
 
       if( api_token ) {
         // add Authorization header
-        console.log(api_token);
         this.requestOptions.headers.append('Authorization', 'Bearer ' + api_token);
       }
       // make request 
@@ -56,7 +58,6 @@ export class ElementoolApi {
 
       if( api_token ) {
         // add Authorization header
-        console.log(api_token);
         this.requestOptions.headers.append('Authorization', 'Bearer ' + api_token);
       }
       // make request 
@@ -69,13 +70,20 @@ export class ElementoolApi {
 
       if( api_token ) {
         // add Authorization header
-        console.log("validate :" + api_token);
        
         this.requestOptions.headers.append('Authorization', 'Bearer ' + api_token);
         ;
       }
       // make request 
-      return this.http.get(this.baseUrl + '/Auth', this.requestOptions);
+      return this.http.get(this.baseUrl + '/Auth', this.requestOptions).map((response: Response) => {
+            let runs = response.json();
+            return runs;
+        }).catch(e => {
+            if (e.status === 401) {
+                return Observable.throw('Unauthorized');
+            }
+          // do any other checking for statuses here
+          });
       });
   }
  
